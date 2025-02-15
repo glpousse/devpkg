@@ -1,9 +1,9 @@
 Package: devpkg
-Title: This package replicates Tables and Figures from. 
+Title: R replication package for Mehmood (2022, AER).
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Guillaume", "Pousse", , "guillaume.pousse@sciencespo.fr", role = c("aut", "cre"))
+Description: This package replicates Tables and Figures from the Mehmood 2022 AER article.  
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
