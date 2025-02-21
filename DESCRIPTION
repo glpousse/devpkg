@@ -1,9 +1,9 @@
 Package: devpkg
-Title: R replication package for Mehmood (2022, AER).
+Title: R replication package for Rossi (2022, AER).
 Version: 0.0.0.9000
 Authors@R: 
     person("Guillaume", "Pousse", , "guillaume.pousse@sciencespo.fr", role = c("aut", "cre"))
-Description: This package replicates Tables and Figures from the Mehmood 2022 AER article.  
+Description: This package replicates Tables and Figures from the Rossi 2022 AER article.  
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
