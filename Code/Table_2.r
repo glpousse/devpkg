@@ -5,9 +5,9 @@ library(stargazer)
 library(textreg)
 library(broom)
 
-df_orig <- read_dta("Input/temp/AQ.dta")
+df2_orig <- read_dta("Input/temp/AQ.dta")
 
-df <- df_orig %>%
+df <- df2_orig %>%
   filter(sample_micro == 1 & !is.na(irAQ53_dum_skti_hrs_secall) & year == 2000) %>%
   arrange(l_y)
 
@@ -142,8 +142,4 @@ stargazer(rr$ey81, rr$ey82, rr$ey83, rr$ey84, rr$ey85,
 
 # Table 2 
 
-
-
-
-
-
+# Still need to write some code to bring it all under one neat table. 

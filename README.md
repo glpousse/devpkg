@@ -6,4 +6,4 @@ As part of [Clément Imbert's](https://sites.google.com/site/clemimbert/) class 
 
 The original data and code can be found [here](https://www.openicpsr.org/openicpsr/project/146041/version/V1/view).
 
-The project is pending, and will be updated throughout the term. Thanks for your patience!
+The project is ongoing, and will be updated throughout the term. Thanks for your patience!
