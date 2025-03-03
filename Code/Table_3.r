@@ -6,7 +6,7 @@ library(lm)
 # to find the coefficients for each row of Table 4. 
 
 #########################
-###### Definitions ######  
+###### Definitions ###### 
 #########################
 
 df3_orig <- read_dta("Input/temp/Q.dta")
