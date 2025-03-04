@@ -75,7 +75,9 @@ plot1 <- ggplot(df_merge, aes(x = l_y)) +
         axis.text.x = element_text(size = 10),  
         axis.text.y = element_text(size = 10),
         legend.text = element_text(size = 14),
-        legend.background = element_rect(color = "black", fill = "white")
+        legend.background = element_rect(color = "black", fill = "white"),
+    axis.line = element_line(color = "black", linewidth = 0.5), 
+    axis.ticks = element_line(color = "black", linewidth = 0.5)  
     ) +
     
     coord_cartesian(xlim = c(min(df_merge$l_y), max(df_merge$l_y) + 0.2), expand = TRUE
@@ -107,9 +109,11 @@ plot2 <- ggplot(df_merge, aes(x = l_y)) +
         axis.text.x = element_text(size = 10),  
         axis.text.y = element_text(size = 10),
         legend.text = element_text(size = 14),
-        legend.background = element_rect(color = "black", fill = "white")
+        legend.background = element_rect(color = "black", fill = "white"),
+    axis.line = element_line(color = "black", linewidth = 0.5),  
+    axis.ticks = element_line(color = "black", linewidth = 0.5) 
     ) +
-    
+
     coord_cartesian(xlim = c(min(df_merge$l_y), max(df_merge$l_y) + 0.2), expand = TRUE
 )  
 
