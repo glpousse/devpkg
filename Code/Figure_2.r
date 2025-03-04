@@ -1,3 +1,4 @@
+rm(list = ls())
 library(haven)
 library(tidyverse)
 library(patchwork)
