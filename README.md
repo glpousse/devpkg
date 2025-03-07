@@ -1,6 +1,6 @@
 # Replication Package for Development Economics
 
-As part of [Clément Imbert's](https://sites.google.com/site/clemimbert/) class in Development Economics, this project will use R to replicate  outputs from: 
+As part of [Clément Imbert's](https://sites.google.com/site/clemimbert/) class in Development Economics, this project will use R to replicate 5 exhibits from: 
 
 *Rossi, Federico. 2022. "The Relative Efficiency of Skilled Labor across Countries: Measurement and Interpretation." American Economic Review 112 (1): 235–66.*
 
