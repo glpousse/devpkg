@@ -31,7 +31,7 @@ micro_sample_long <- micro_sample_long %>% select(country, Statistics, Value, l_
 # Ordering the stats the reproduce the same order as in the paper's figure
 
 micro_sample_long$Statistics <- factor(micro_sample_long$Statistics, 
-                                       levels = c("y_PRusm", "y_PusmR_j", "y_PusmR", "y_PusmR_cc")) 
+                                       levels = c("y_PRusm", "y_PusmR_j", "y_PusmR_cc", "y_PusmR")) 
 
 ###### Making the "Broad" Sample for plot 2 ######
 
@@ -58,7 +58,7 @@ all(c("country", "Statistics", "Value") %in% colnames(broad_sample_long)) # if T
 broad_sample_long <- broad_sample_long %>% select(country, Statistics, Value, l_y)
 
 broad_sample_long$Statistics <- factor(broad_sample_long$Statistics, 
-                                       levels = c("y_PRus", "y_PusR_j", "y_PusR", "y_PusR_cc")
+                                       levels = c("y_PRus", "y_PusR_j", "y_PusR_cc", "y_PusR")
 )
 
 # Labelling the countries which were kept due to the percentile match
@@ -81,9 +81,9 @@ plot1 <- ggplot(micro_sample_long, aes(x = reorder(country, l_y), y = Value, fil
     scale_fill_manual(
         values = c(
         "y_PRusm" = "grey10",
-        "y_PusmR_j" = "grey30",
-        "y_PusmR" = "grey70",
-        "y_PusmR_cc" = "grey100"), 
+        "y_PusmR_j" = "grey40",
+        "y_PusmR_cc"= "grey70",
+        "y_PusmR"= "grey100"), 
         labels = c("y_PRusm" = "Data",
         "y_PusmR_j" = expression("Counterfactual, " ~ theta[Q] == theta[AQ]),
         "y_PusmR" = expression("Counterfactual, " ~ theta[Q] == 0),
@@ -119,9 +119,9 @@ plot2 <- ggplot(broad_sample_long, aes(x = reorder(country_label, l_y), y = Valu
     scale_fill_manual(
         values = c(
         "y_PRus" = "grey10",
-        "y_PusR_j" = "grey30",
-        "y_PusR" = "grey70",
-        "y_PusR_cc" = "grey100"), 
+        "y_PusR_j" = "grey40",
+        "y_PusR_cc" = "grey70",
+        "y_PusR" = "grey100"), 
         labels = c("y_PRus" = "Data",
         "y_PusR_j" = expression("Counterfactual, " ~ theta[Q] == theta[AQ]),
         "y_PusR" = expression("Counterfactual, " ~ theta[Q] == 0),

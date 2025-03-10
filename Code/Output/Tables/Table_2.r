@@ -89,7 +89,7 @@ stargazer(rr$ey11, rr$ey12, rr$ey13, rr$ey14, rr$ey15,
           type = "html", 
           out = "Output/Tables/tab_2_row1.html", 
           dep.var.labels = "Baseline", 
-          column.labels = c("Model 1", "Model 2", "Model 3", "Model 4", "Model 5"),
+          column.labels = c(expression(theta[W]), "Model 2", "Model 3", "Model 4", "Model 5"),
           digits = 3)
 # Exporting 2
 stargazer(rr$ey21, rr$ey22, rr$ey23, rr$ey24, rr$ey25, 
@@ -141,6 +141,4 @@ stargazer(rr$ey81, rr$ey82, rr$ey83, rr$ey84, rr$ey85,
           column.labels = c("Model 1", "Model 2", "Model 3", "Model 4", "Model 5"),
           digits = 3)
 
-# Table 2 
-
-# Still need to write some code to bring it all under one neat table. 
+###### Pretty Output for Table 4 ######

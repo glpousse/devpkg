@@ -1,5 +1,6 @@
 library(haven)
 library(dyplr)
+library(kableExtra)
 library(lm)
 
 # Definitions need to be set. Then, blocks for eac row can be run consecutively, or independently, 
@@ -536,5 +537,55 @@ df3$s <- (df3$b_Q_5/ df3$b_AQ_8)
 ratios_9 $Q5_AQ8r <- mean(df3$s, na.rm = TRUE)
 
 ##############################
-###### Building Table 4 ######  
+###### Building Table 3 ######  
 ##############################
+
+# I will build a df ressembling the table structure I need, then use Kable. 
+
+df_table <- data.frame(matrix(1:99, nrow = 9, ncol = 11))
+
+df_table$X1 <- c("1. US Immigrants", "2. All Host Countries", "3. Bilateral Control",
+                  "4. Selection Adjusted", "5. 10+ Years in US", "6. English Speakers",
+                  "7. Skill Downgrading", "8. Sorting (sectors)", "9. Sorting (geographic)"
+)
+
+for (i in 1:9) {
+  df_table[i, 2] <- coef(get(paste0("Q_models_", i))$rrQ_1)["l_y"]
+  df_table[i, 7] <- coef(get(paste0("Q_models_", i))$rrQ_5)["l_y"]
+  df_table[i, 3] <- summary(get(paste0("Q_models_", i))$rrQ_1)$coefficients["l_y", "Std. Error"]
+  df_table[i, 8] <- summary(get(paste0("Q_models_", i))$rrQ_5)$coefficients["l_y", "Std. Error"]
+}
+
+for (i in 1:9) {
+  df_table[i,4]  <- get(paste0("ratios_", i))["Q1_AQ2r"]
+  df_table[i,5]  <- get(paste0("ratios_", i))["Q1_AQ3r"]
+  df_table[i,6]  <- get(paste0("ratios_", i))["Q1_AQ4r"]
+  df_table[i,9]  <- get(paste0("ratios_", i))["Q5_AQ6r"]
+  df_table[i,10]  <- get(paste0("ratios_", i))["Q5_AQ7r"]
+  df_table[i,11] <- get(paste0("ratios_", i))["Q5_AQ8r"]
+}
+
+df_table <- df_table %>%
+  mutate(across(where(is.numeric), round, digits = 3)) %>%
+  mutate(
+    X2 = paste0(X2, " \n[", X3, "]"),
+    X7 = paste0(X7, " \n[", X8, "]")
+  ) %>%
+  select(-X3, -X8
+)
+
+latex_table <- df_table %>%
+  kbl(format = "latex", booktabs = TRUE, escape = FALSE, align = c("l", rep("c", ncol(df_table) - 1)),
+      col.names = c("", "$\\theta_Q$", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 2$",
+                    "$\\theta_Q$", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 2$"),
+      caption = "Relative Human Capital Across Countries") %>%
+  pack_rows("Robustness (US Immigrants)", 5,9, indent = FALSE, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
+  add_header_above(c(" " = 2, "$\\\\theta_{Q} / \\\\theta_{AQ}$" = 3, " " = 1, "$\\\\theta_{Q} / \\\\theta_{AQ}$" = 3), bold = FALSE, italic = TRUE, escape = FALSE) %>%
+  add_header_above(c(" " = 1, "Broad sample (observations = 102)" = 4, 
+                     "Microdata sample (observations = 12)" = 4)) %>%
+  column_spec(1, width = "4cm") %>%  
+  column_spec(2:9, width = "1.25cm") %>%
+add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
+)
+
+write(latex_table, file = "Output/Tables/Table_3.tex")
