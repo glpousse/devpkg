@@ -1,7 +1,7 @@
+rm(list = ls())
 library(haven)
-library(dyplr)
+library(dplyr)
 library(kableExtra)
-library(lm)
 
 # Definitions need to be set. Then, blocks for eac row can be run consecutively, or independently, 
 # to find the coefficients for each row of Table 4. 
@@ -537,7 +537,7 @@ df3$s <- (df3$b_Q_5/ df3$b_AQ_8)
 ratios_9 $Q5_AQ8r <- mean(df3$s, na.rm = TRUE)
 
 ##############################
-###### Building Table 3 ######  
+###### Setup for Table 3 #####
 ##############################
 
 # I will build a df ressembling the table structure I need, then use Kable. 
@@ -566,7 +566,7 @@ for (i in 1:9) {
 }
 
 df_table <- df_table %>%
-  mutate(across(where(is.numeric), round, digits = 3)) %>%
+  mutate(across(where(is.numeric), \(x) round(x, digits = 3))) %>%  
   mutate(
     X2 = paste0(X2, " \n[", X3, "]"),
     X7 = paste0(X7, " \n[", X8, "]")
@@ -574,18 +574,38 @@ df_table <- df_table %>%
   select(-X3, -X8
 )
 
+####################
+###### Table 3 #####
+####################
+
 latex_table <- df_table %>%
   kbl(format = "latex", booktabs = TRUE, escape = FALSE, align = c("l", rep("c", ncol(df_table) - 1)),
       col.names = c("", "$\\theta_Q$", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 2$",
                     "$\\theta_Q$", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 2$"),
       caption = "Relative Human Capital Across Countries") %>%
-  pack_rows("Robustness (US Immigrants)", 5,9, indent = FALSE, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
   add_header_above(c(" " = 2, "$\\\\theta_{Q} / \\\\theta_{AQ}$" = 3, " " = 1, "$\\\\theta_{Q} / \\\\theta_{AQ}$" = 3), bold = FALSE, italic = TRUE, escape = FALSE) %>%
-  add_header_above(c(" " = 1, "Broad sample (observations = 102)" = 4, 
-                     "Microdata sample (observations = 12)" = 4)) %>%
-  column_spec(1, width = "4cm") %>%  
-  column_spec(2:9, width = "1.25cm") %>%
+  add_header_above(c(" " = 1, "Broad sample (observations = 102)" = 4, "Microdata sample (observations = 12)" = 4)) %>%
+  column_spec(1, width = "4.1cm") %>%  
+  column_spec(2:9, width = "1.1cm") %>%
+  row_spec(3, extra_latex_after = "\\textit{Robustness (US immigrants)} \\\\") %>%  
+  kable_styling(font_size = 9, position = "center")%>%
+  row_spec(1:nrow(df_table), extra_latex_after = "\\addlinespace[5pt]") %>%
 add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
 write(latex_table, file = "Output/Tables/Table_3.tex")
+
+# Unwanted "\addlinespace"s appear in the written script. I remove them manually. 
+
+latex_file <- "Output/Tables/Table_3.tex"
+lines <- readLines(latex_file)
+
+lines_to_remove <- 33
+
+# Keep only the lines that are NOT in the list
+filtered_lines <- lines[-lines_to_remove]
+
+# Write back to the LaTeX file
+writeLines(filtered_lines, latex_file)
+
+##### Table 3 from Rossi, 2022 (AER) completed #####

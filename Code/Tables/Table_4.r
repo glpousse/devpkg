@@ -5,7 +5,9 @@ library(stringr)
 library(kableExtra)
 
 
-###### Setting up the df ######
+###############################
+###### Setup for Table 2 ###### 
+###############################
 
 df_origin <- read_dta("Input/temp/devacc.dta")
 
@@ -84,8 +86,6 @@ df_wide <- df_long %>%
 
 # df_wide holds the data for table 4 
 
-###### Pretty Output for Table 4 ######
-
 # Rounding 
 
 df_wide[, -1] <- round(df_wide[, -1], 3)
@@ -98,20 +98,25 @@ df_wide["method"] <- c("$1.\\ \\theta_Q = \\theta_{AQ}$",
                      "$4.\\ \\theta_Q = 0.05 \\times \\theta_{AQ}$ "
 )
 
-# Converting dataframe to LaTeX table using kableExtra
+#####################
+###### Table 4 ###### 
+#####################
 
 latex_table <- df_wide %>%
-  kbl(format = "latex", booktabs = TRUE, escape = FALSE, table.envir = "H",
+  kbl(format = "latex", booktabs = TRUE, escape = FALSE, align = c("l", rep("c", ncol(df_wide) - 1)), 
       col.names = c("", "$\\sigma = 1.5$", "$\\sigma = 2$", "$\\sigma = 4$", "$\\sigma = \\infty$"),
       caption = "Relative Human Capital and Development Accounting: US vs. India") %>%
   add_header_above(c(" " = 1, "Counterfactual relative GDP (US = 1)" = 4)) %>%
   row_spec(0, bold = TRUE) %>% 
-  column_spec(1, width = "7cm") %>%
-  column_spec(2:5, width = "1.5cm") %>%  
+  column_spec(1, width = "6cm") %>%
+  column_spec(2:5, width = "1.2cm") %>%  
   pack_rows("Relative Human Capital Interpretation", 1, 1, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
   pack_rows("Relative Technology Interpretation", 2, 2, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
   pack_rows("Migrant-Based Calibration", 3, 4, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
+  kable_styling(font_size = 9, position = "center") %>%
   add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
 write(latex_table, file = "Output/Tables/Table_4.tex")
+
+##### Table 4 from Rossi, 2022 (AER) completed #####
