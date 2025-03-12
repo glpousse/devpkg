@@ -28,7 +28,7 @@ For the code to work, replicators must first download the relevant `.dta` files 
 - `Input/temp/devacc.dta`
 - `Input/temp/gdp_pwt.dta`
 
-Alternatively, the replicator can replace the entire `Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should at least look like this: 
+Alternatively, the replicator can replace the entire `Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should at the very least look like this: 
 
 ``` 
 devpkg/
@@ -48,13 +48,13 @@ devpkg/
 │   │   ├── gdp_pwt.dta
 │   │   └── Q.dta 
 └── Output/
-│   ├── Figures/
-│   │    ├──
-│   │    ├──
-│   └── Tables/ 
-│   │    ├──
-│   │    ├──
-│   │    └── 
+    ├── Figures/
+    │    ├──
+    │    ├──
+    └── Tables/ 
+         ├──
+         ├──
+         └── 
 ```
 
 Finally, running the `_master.r` script will replicate all figures. 
