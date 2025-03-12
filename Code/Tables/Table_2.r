@@ -1,10 +1,8 @@
 rm(list = ls())
 library(haven)
-library(lm)
 library(tidyr)
 library(dplyr)
 library(kableExtra)
-
 
 #########################
 ###### Definitions ###### 
