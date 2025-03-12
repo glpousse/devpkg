@@ -8,7 +8,7 @@ The original data and code can be found [here](https://www.openicpsr.org/openicp
 
 The project is ongoing, and is being updated throughout the term. Thanks for your patience!
 
-## Computationl Requirements 
+## Computational Requirements 
 
 The replication was conducted on R version 4.4.1. The necessary packages to install are: 
 - haven 
@@ -28,7 +28,7 @@ For the code to work, replicators must first download the relevant `.dta` files 
 - `Input/temp/devacc.dta`
 - `Input/temp/gdp_pwt.dta`
 
-Alternatively, the replicator can replace the entire `Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should at the very least look like this: 
+Alternatively, the replicator can replace the entire `Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should *at the very least* look like this: 
 
 ``` 
 devpkg/
@@ -56,4 +56,4 @@ Finally, running the `_master.r` script will replicate all figures.
 
 ## Final Comment
 
-This replication code does not replicate the Rossi (2022) paper in full. In a first step towards doing so, there is a substantial amount of STATA cleaning code to translate, as well as intermediary analysis scripts which finally yeild the working datasets. For this reason, the author kindly provided the final cleaned, working datasets in the `temp` folder of his replciation package, which this package relies on. Extending this package to fully replicate all results from Rossi (2022) may be 
+This replication code does not replicate the Rossi (2022) paper in full. In a first step towards doing so, there is a substantial amount of STATA cleaning code to translate, as well as intermediary analysis scripts, which finally yeild the working datasets. For this reason, the author kindly provides the final cleaned, working datasets in the `temp` folder of his replciation package, which this package relies on. Extending this package to fully replicate all Rossi (2022) results from scratch is left as a future project. 
