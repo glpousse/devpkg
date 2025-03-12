@@ -49,12 +49,7 @@ devpkg/
 │   │   └── Q.dta 
 └── Output/
     ├── Figures/
-    │    ├──
-    │    ├──
     └── Tables/ 
-         ├──
-         ├──
-         └── 
 ```
 
 Finally, running the `_master.r` script will replicate all figures. 
