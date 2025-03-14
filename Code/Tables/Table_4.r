@@ -6,7 +6,7 @@ library(kableExtra)
 
 
 ###############################
-###### Setup for Table 2 ###### 
+###### Setup for Table 4 ###### 
 ###############################
 
 df_origin <- read_dta("Input/temp/devacc.dta")
