@@ -4,7 +4,7 @@
 
 ##### Set the working directory ##### 
 
-setwd("") # Insert filepath to where the .zip has been downloaded
+setwd("/Users/glpou/Documents/SCIENCESPO/M2/S4/Development/Replication/devpkg") # Insert filepath to where the .zip has been downloaded
 
 ##### Running the scripts ##### 
 

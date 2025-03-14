@@ -160,12 +160,12 @@ df_table <- df_table %>%
 
 latex_table <- df_table %>%
   kbl(format = "latex", booktabs = TRUE, escape = FALSE, align = c("l", rep("c", ncol(df_table) - 1)),
-      col.names = c("", "$\\theta_W$", "$\\theta_{\\tilde{H}/\\tilde{L}}", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 1.2$"),
+      col.names = c("", "$\\theta_W$", "$\\theta_{\\tilde{H}/\\tilde{L}}$", "$\\sigma = 1.5$", "$\\sigma = 1.3$", "$\\sigma = 1.2$"),
       caption = "Skill Premium, Supply, and Efficiency Across Countries: Robustness") %>%
-  add_header_above(c(" " = 3, "$\\\\theta_{AQ}" = 3), bold = FALSE, italic = TRUE, escape = FALSE) %>%
+  add_header_above(c(" " = 3, "$\\\\theta_{AQ}$" = 3), bold = FALSE, italic = TRUE, escape = FALSE) %>%
   kable_styling(font_size = 9, position = "center") %>%
   row_spec(seq(2, nrow(df_table), by = 2), extra_latex_after = "\\addlinespace[5pt]") %>% 
-  add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
+  add_footnote(c("\\scriptsize Notes: This table replicates Table 2 from Rossi (2022). It shows the elasticities of the skill premium, relative skill supply, and relative skill efficiency with respect to GDP per worker (standard errors in brackets). The elasticities are computed using data for the 12 countries in the microdata sample, with the exceptions of rows 3 and 4 for which only the 8 countries with self-employment data are used. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_2.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
 write(latex_table, file = "Output/Tables/Table_2.tex")

@@ -114,7 +114,7 @@ latex_table <- df_wide %>%
   pack_rows("Relative Technology Interpretation", 2, 2, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
   pack_rows("Migrant-Based Calibration", 3, 4, escape = FALSE, italic = TRUE, bold = FALSE, latex_gap_space = "5pt") %>%
   kable_styling(font_size = 9, position = "center") %>%
-  add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
+  add_footnote(c("\\scriptsize Notes: This table replicates Table 4 from Rossi (2022). It shows the counterfactual GDP ratio $y^*_P/y_R$, where $P$ is India and $R$ is the United States, under different calibrations of the elasticity of relative human capital $\\theta_Q$. For comparison, the actual GDP ratio in the data is $y_P/y_R = 0.057$. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_4.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
 write(latex_table, file = "Output/Tables/Table_4.tex")

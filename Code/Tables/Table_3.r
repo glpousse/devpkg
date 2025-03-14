@@ -590,7 +590,7 @@ latex_table <- df_table %>%
   row_spec(3, extra_latex_after = "\\textit{Robustness (US immigrants)} \\\\") %>%  
   kable_styling(font_size = 9, position = "center")%>%
   row_spec(1:nrow(df_table), extra_latex_after = "\\addlinespace[5pt]") %>%
-add_footnote(c("\\scriptsize Notes: This is my footnote"), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
+  add_footnote(c("\\scriptsize Notes: This table replicates Table 3 from Rossi (2022). It shows the elasticity of relative human capital with respect to GDP per capita $\\theta_Q$ (standard errors in brackets) and its ratio with respect to the elasticity of relative skill efficiency $\\theta_{AQ}$. Each row reports results from a different methodology (as indicated by the row titles) to estimate the relative human capital endowment of highskill labor. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_3.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
 write(latex_table, file = "Output/Tables/Table_3.tex")
