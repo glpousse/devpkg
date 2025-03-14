@@ -6,8 +6,6 @@ As part of [Clément Imbert's](https://sites.google.com/site/clemimbert/) class 
 
 The original data and code can be found [here](https://www.openicpsr.org/openicpsr/project/146041/version/V1/view).
 
-The project is ongoing, and is being updated throughout the term. Thanks for your patience!
-
 ## Computational Requirements 
 
 The replication was conducted on R version 4.4.1. The necessary packages to install are: 
