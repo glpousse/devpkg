@@ -21,12 +21,26 @@ Scripts are named after their respective purposes. `Table_2.r`, `Table_3.r`, `Ta
 
 For the code to work, replicators must first download the relevant `.dta` files from the original replication package [here](https://www.openicpsr.org/openicpsr/project/146041/version/V1/view), which I detail below: 
 
-- `Input/temp/AQ.dta` 
-- `Input/temp/Q.dta`
-- `Input/temp/devacc.dta`
-- `Input/temp/gdp_pwt.dta`
+- `2_Input/temp/AQ.dta` 
+- `2_Input/temp/Q.dta`
+- `2_Input/temp/devacc.dta`
+- `2_Input/temp/emphrs_all.dta`
+- `2_Input/temp/emphrs_brazil.dta`
+- `2_Input/temp/emphrs_canada.dta`
+- `2_Input/temp/emphrs_india.dta`
+- `2_Input/temp/emphrs_indonesia.dta`
+- `2_Input/temp/emphrs_israel.dta`
+- `2_Input/temp/emphrs_jamaica.dta`
+- `2_Input/temp/emphrs_mexico.dta`
+- `2_Input/temp/emphrs_panama.dta`
+- `2_Input/temp/emphrs_tt.dta`
+- `2_Input/temp/emphrs_uruguay.dta`
+- `2_Input/temp/emphrs_usa.dta`
+- `2_Input/temp/emphrs_venezuela.dta`
+- `2_Input/temp/gdp_pwt_temp.dta`
+- `2_Input/data/pwt/gdp_pwt.dta`
 
-Alternatively, the replicator can replace the entire `Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should *at the very least* look like this: 
+Alternatively, the replicator can replace the entire `2_Input` folder with the `Input` folder from the original replication package. Before running the code, the file structure should *at the very least* look like this: 
 
 ``` 
 devpkg/
@@ -40,10 +54,26 @@ devpkg/
 │   │    ├── Table_3.r
 │   │    └── Table_4.r 
 ├── Input/
+│   ├── data/
+│   │   └──pwt/
+│   │   │   └──gdp_pwt.dta
 │   ├── temp/
 │   │   ├── AQ.dta 
 │   │   ├── devacc.dta 
-│   │   ├── gdp_pwt.dta
+│   │   ├── emphrs_all.dta
+│   │   ├── emphrs_brazil.dta
+│   │   ├── emphrs_canada.dta
+│   │   ├── emphrs_india.dta
+│   │   ├── emphrs_indonesia.dta
+│   │   ├── emphrs_israel.dta
+│   │   ├── emphrs_jamaica.dta
+│   │   ├── emphrs_mexico.dta
+│   │   ├── emphrs_panama.dta
+│   │   ├── emphrs_tt.dta
+│   │   ├── emphrs_uruguay.dta
+│   │   ├── emphrs_usa.dta
+│   │   ├── emphrs_venezuela.dta
+│   │   ├── gdp_pwt_temp.dta
 │   │   └── Q.dta 
 └── Output/
     ├── Figures/
