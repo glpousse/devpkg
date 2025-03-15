@@ -7,7 +7,7 @@ library(patchwork)
 ###### Setup ###### 
 ###################
 
-df_origin <- read_dta("Input/temp/devacc.dta")
+df_origin <- read_dta("2_Input/temp/devacc.dta")
 
 percentiles <- c(0.01, 0.05, 0.10, 0.15, 0.20, 0.30, 0.45, 0.50, 0.85, 0.90, 0.99)
 
@@ -156,4 +156,4 @@ figure_8 <- plot1 + plot2 +
     theme(legend.position = "bottom", legend.justification = "center"
 )
 
-ggsave("Output/Figures/figure_8.pdf", plot = figure_8, width = 14, height = 7)
+ggsave("3_Output/Figures/figure_8.pdf", plot = figure_8, width = 14, height = 7)

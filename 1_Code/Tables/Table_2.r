@@ -8,7 +8,7 @@ library(kableExtra)
 ###### Definitions ###### 
 #########################
 
-df2_orig <- read_dta("Input/temp/AQ.dta")
+df2_orig <- read_dta("2_Input/temp/AQ.dta")
 
 df <- df2_orig %>%
   filter(sample_micro == 1 & !is.na(irAQ53_dum_skti_hrs_secall) & year == 2000) %>%
@@ -168,11 +168,11 @@ latex_table <- df_table %>%
   add_footnote(c("\\scriptsize Notes: This table replicates Table 2 from Rossi (2022). It shows the elasticities of the skill premium, relative skill supply, and relative skill efficiency with respect to GDP per worker (standard errors in brackets). The elasticities are computed using data for the 12 countries in the microdata sample, with the exceptions of rows 3 and 4 for which only the 8 countries with self-employment data are used. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_2.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
-write(latex_table, file = "Output/Tables/Table_2.tex")
+write(latex_table, file = "3_Output/Tables/Table_2.tex")
 
 # Unwanted "\addlinespace"s appear in the written script. I remove them manually. 
 
-latex_file <- "Output/Tables/Table_2.tex"
+latex_file <- "3_Output/Tables/Table_2.tex"
 lines <- readLines(latex_file)
 
 lines_to_remove <- c(20, 29, 37)

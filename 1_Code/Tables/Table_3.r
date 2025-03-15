@@ -10,7 +10,7 @@ library(kableExtra)
 ###### Definitions ###### 
 #########################
 
-df3_orig <- read_dta("Input/temp/Q.dta")
+df3_orig <- read_dta("2_Input/temp/Q.dta")
 
 log_vars1 <- c("irAQ53_blee_skti", "irAQ53rh_blee_skti", "irAQ53rl_blee_skti", 
           "irAQ53_dum_skti_hrs_secall", "irAQ53rh_dum_skti_hrs_secall", 
@@ -593,11 +593,11 @@ latex_table <- df_table %>%
   add_footnote(c("\\scriptsize Notes: This table replicates Table 3 from Rossi (2022). It shows the elasticity of relative human capital with respect to GDP per capita $\\theta_Q$ (standard errors in brackets) and its ratio with respect to the elasticity of relative skill efficiency $\\theta_{AQ}$. Each row reports results from a different methodology (as indicated by the row titles) to estimate the relative human capital endowment of highskill labor. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_3.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
-write(latex_table, file = "Output/Tables/Table_3.tex")
+write(latex_table, file = "3_Output/Tables/Table_3.tex")
 
 # Unwanted "\addlinespace"s appear in the written script. I remove them manually. 
 
-latex_file <- "Output/Tables/Table_3.tex"
+latex_file <- "3_Output/Tables/Table_3.tex"
 lines <- readLines(latex_file)
 
 lines_to_remove <- 33

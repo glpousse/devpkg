@@ -9,7 +9,7 @@ library(kableExtra)
 ###### Setup for Table 4 ###### 
 ###############################
 
-df_origin <- read_dta("Input/temp/devacc.dta")
+df_origin <- read_dta("2_Input/temp/devacc.dta")
 
 df <- df_origin %>% 
     filter(country == "India") %>%
@@ -117,6 +117,6 @@ latex_table <- df_wide %>%
   add_footnote(c("\\scriptsize Notes: This table replicates Table 4 from Rossi (2022). It shows the counterfactual GDP ratio $y^*_P/y_R$, where $P$ is India and $R$ is the United States, under different calibrations of the elasticity of relative human capital $\\theta_Q$. For comparison, the actual GDP ratio in the data is $y_P/y_R = 0.057$. The code used to replicate this table can be found \\underline{\\href{https://github.com/glpousse/devpkg/blob/main/Code/Tables/Table_4.r}{here}}."), notation = getOption("kable_footnote_notation", "none"), escape = FALSE, threeparttable = TRUE
 )
 
-write(latex_table, file = "Output/Tables/Table_4.tex")
+write(latex_table, file = "3_Output/Tables/Table_4.tex")
 
 ##### Table 4 from Rossi, 2022 (AER) completed #####

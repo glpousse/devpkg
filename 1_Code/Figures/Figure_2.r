@@ -15,7 +15,7 @@ for(country in countries){
     assign(paste0("df_", country), read_dta(paste0("Input/temp/emphrs_", country,".dta"))) 
 }
 
-pwt_dta <- read_dta("Input/data/pwt/gdp_pwt.dta")
+pwt_dta <- read_dta("2_Input/data/pwt/gdp_pwt.dta")
 
 #######################
 ###### Appending ###### 
@@ -122,4 +122,4 @@ figure_2 <- plot1 + plot2 +
     plot_layout(ncol = 2, guides = "collect") &  
     theme(legend.position = "bottom", legend.justification = "center")
 
-ggsave("Output/Figures/figure_2.pdf", plot = figure_2, width = 14, height = 7)
+ggsave("3_Output/Figures/figure_2.pdf", plot = figure_2, width = 14, height = 7)
