@@ -4,7 +4,6 @@ library(tidyr)
 library(stringr)
 library(kableExtra)
 
-
 ###############################
 ###### Setup for Table 4 ###### 
 ###############################
@@ -99,7 +98,7 @@ df_wide["method"] <- c("$1.\\ \\theta_Q = \\theta_{AQ}$",
 )
 
 #####################
-###### Table 4 ###### 
+###### Table 4 ######
 #####################
 
 latex_table <- df_wide %>%
