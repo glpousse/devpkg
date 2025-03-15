@@ -1,4 +1,4 @@
-# Replication Package for Development Economics
+# Replication of Rossi (2022, AER) Exhibits in R
 
 As part of [Clément Imbert's](https://sites.google.com/site/clemimbert/) class in Development Economics, this project will use R to replicate 5 exhibits from: 
 
