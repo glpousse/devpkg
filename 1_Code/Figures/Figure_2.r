@@ -12,7 +12,7 @@ countries <- c("brazil", "canada", "india", "indonesia", "israel",
 )
 
 for(country in countries){
-    assign(paste0("df_", country), read_dta(paste0("Input/temp/emphrs_", country,".dta"))) 
+    assign(paste0("df_", country), read_dta(paste0("2_Input/temp/emphrs_", country,".dta"))) 
 }
 
 pwt_dta <- read_dta("2_Input/data/pwt/gdp_pwt.dta")
